@@ -9,7 +9,11 @@ var config = require(__dirname + '/config');
 var app = express();
 
 // setup database connection
-mongoose.connect('mongodb://' + config.mongo.host + '/' + config.mongo.name);
+var mongoUri = process.env.MONGOLAB_URI
+  || process.env.MONGOHQ_URL
+  || 'mongodb://' + config.mongo.host + '/' + config.mongo.name
+
+mongoose.connect(mongoUri);
 require('mongoose-types').loadTypes(mongoose);
 
 // configure application middleware
