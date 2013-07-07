@@ -1,14 +1,14 @@
 module.exports = {
   http: {
-    port: 8080
+    port: process.env.PORT || 8080
   },
   mongo: {
     host: 'localhost',
     name: 'node-tut'
   },
   facebook: {
-    clientID: '429307213834930',
-    clientSecret: '377b19cb03689a91edb7523fa5af4610',
+    clientID: process.env.FACEBOOK_CLIENT_ID || '529219793793438',
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET || '276c67319f300361a082ffe071d7aa68',
     callbackURL: "/auth/facebook/callback"
   }
 }
