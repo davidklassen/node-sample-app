@@ -1,0 +1,15 @@
+<ol class="microposts">
+  <% microposts.forEach(function (micropost) { %>
+  <li id="<%= micropost._id %>">
+    <% if (micropost.user._id) { %>
+    <a href="/users/<%= micropost.user._id %>"><img src="<%= gravatar.url(micropost.user.email, { s: 50 }) %>" class="gravatar" alt="<%= micropost.user.name %>"></a>
+    <span class="user"><a href="/users/<%= micropost.user._id %>"><%= micropost.user.name %></a></span>
+    <% } %>
+    <span class="content"><%= micropost.text %></span>
+    <span class="timestamp">Posted <%= timeago(micropost.createdAt) %>.</span>
+    <% if (req.user.isCurrentUser(micropost.user)) { %>
+    <a title="<%= micropost.text %>" rel="nofollow" data-method="delete" data-confirm="You sure?" href="/microposts/<%= micropost._id %>">delete</a>
+    <% } %>
+  </li>
+  <% }) %>
+</ol>

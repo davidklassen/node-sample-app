@@ -1,0 +1,14 @@
+<section>
+  <a href="">
+    <img alt="<%= user.name %>" class="gravatar" src="<%= gravatar.url(user.email, { s: 52 }) %>"/>
+  </a>
+  <h1>
+    <%= user.name %>
+  </h1>
+  <span>
+    <a href="/users/<%= user._id %>">view my profile</a>
+  </span>
+  <span>
+    <%= user.microposts.length + ' ' + pluralize('micropost', user.microposts.length) %>
+  </span>
+</section>

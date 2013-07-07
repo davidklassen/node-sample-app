@@ -1,0 +1,12 @@
+<section>
+  <div class="stats">
+    <a href="/users/<%= user._id %>/following">
+      <strong id="following" class="stat"><%= user.following.length %></strong>
+      following
+    </a>
+    <a href="/users/<%= user._id %>/followers">
+      <strong id="followers" class="stat"><%= user.followers.length %></strong>
+      followers
+    </a>
+  </div>
+</section>

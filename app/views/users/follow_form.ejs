@@ -1,0 +1,11 @@
+<div id="follow_form">
+  <% if (!req.user.hasFollowing(user)) { %>
+  <form method="post" action="/users/<%= user._id %>/follow">
+    <input type="submit" value="Follow" class="btn btn-large btn-primary">
+  </form>
+  <% } else { %>
+  <form method="post" action="/users/<%= user._id %>/unfollow">
+    <input type="submit" value="Unfollow" class="btn btn-large">
+  </form>
+  <% } %>
+</div>

@@ -1,0 +1,8 @@
+<ul class="users">
+  <% users.forEach(function (user) { %>
+  <li>
+    <img src="<%= gravatar.url(user.email, { s: 52 }) %>" class="gravatar" alt="<%= user.name %>">
+    <a href="/users/<%= user._id %>"><%= user.name %></a>
+  </li>
+  <% }) %>
+</ul>

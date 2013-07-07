@@ -1,0 +1,14 @@
+<% block('title', "Feed") %>
+<% layout('../layout') -%>
+
+<div class="row">
+  <aside class="span4">
+    <%- partial('../users/aside_block', { user: req.user }) %>
+    <%- partial('../users/stats_block', { user: req.user }) %>
+    <% include form %>
+  </aside>
+  <div class="span8">
+    <h3>Micropost Feed</h3>
+    <% include list %>
+  </div>
+</div>

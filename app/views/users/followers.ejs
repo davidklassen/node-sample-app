@@ -1,0 +1,13 @@
+<% block('title', "Followers") %>
+<% layout('../layout') -%>
+
+<div class="row">
+  <aside class="span4">
+    <% include aside_block %>
+    <% include stats_block %>
+  </aside>
+  <div class="span8">
+    <h3>Followers</h3>
+    <%- partial('list', { users: user.followers }) %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<% block('title', user.name) %>
+<% layout('../layout') -%>
+
+<div class="row">
+  <aside class="span4">
+    <% include aside_block %>
+    <% include stats_block %>
+  </aside>
+  <div class="span8">
+    <% if (!req.user.isCurrentUser(user)) { %>
+    <% include follow_form %>
+    <% } %>
+    <h3>Microposts (<%= user.microposts.length %>)</h3>
+    <%- partial('../microposts/list', { microposts: user.microposts }) %>
+  </div>
+</div>
