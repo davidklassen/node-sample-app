@@ -11,10 +11,9 @@ var app = express();
 // setup database connection
 var mongoUri = process.env.MONGOLAB_URI
   || process.env.MONGOHQ_URL
-  || 'mongodb://' + config.mongo.host + '/' + config.mongo.name
+  || 'mongodb://' + config.mongo.host + '/' + config.mongo.name;
 
 mongoose.connect(mongoUri);
-require('mongoose-types').loadTypes(mongoose);
 
 // configure application middleware
 app.use(express.favicon());
