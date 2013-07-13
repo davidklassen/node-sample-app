@@ -6,7 +6,7 @@ var Micropost = require(__dirname + '/Micropost');
 var UserSchema = mongoose.Schema({
   facebookId: { type: String, required: true, index: { unique: true } },
   name: { type: String, required: true },
-  email: { type: mongoose.SchemaTypes.Email, index: { unique: true } },
+  email: { type: String, match: /^.*@.+$/, index: { unique: true } },
   microposts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Micropost' }],
   followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
